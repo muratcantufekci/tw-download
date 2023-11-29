@@ -61,14 +61,23 @@ body {
     text-decoration: none;
 
     img {
-      width: 50px;
-      height: 50px;
+      width: 30px;
+      height: 30px;
+
+      @include respond-to-up("md") {
+        width: 50px;
+        height: 50px;
+      }
     }
 
     span {
-      font-size: 32px;
+      font-size: 24px;
       font-weight: 700;
       color: #ccd6dd;
+
+      @include respond-to-up("md") {
+        font-size: 32px;
+      }
     }
   }
 }
@@ -82,23 +91,42 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: column;
+    gap: 16px;
+
+    @include respond-to-up("md") {
+      flex-direction: row;
+    }
   }
 
   &__text {
-    width: 61%;
+    @include respond-to-up("md") {
+      width: 61%;
+    }
+
     p {
       margin: 0;
-      font-size: 14px;
+      font-size: 12px;
       color: white;
       font-weight: 500;
+      text-align: center;
+
+      @include respond-to-up("md") {
+        font-size: 14px;
+        text-align: start;
+      }
     }
   }
 
   &__actions {
     a {
       color: white;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
+
+      @include respond-to-up("md") {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -216,20 +244,32 @@ body {
   gap: 0;
   color: white;
   p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
     margin: 0 0 24px 0;
+
+    @include respond-to-up("md") {
+      font-size: 18px;
+    }
   }
 
   h3 {
     margin: 0 0 24px 0;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
+
+    @include respond-to-up("md") {
+      font-size: 24px;
+    }
   }
 
   ul {
     margin: 0 0 24px 0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
+
+    @include respond-to-up("md") {
+      font-size: 18px;
+    }
   }
 }
