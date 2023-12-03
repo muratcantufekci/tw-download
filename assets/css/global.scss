@@ -50,13 +50,24 @@ body {
   }
 }
 
+h3 {
+  color: white;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 24px 0;
   background: #111827;
   margin-bottom: 64px;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   &__logo {
     display: flex;
@@ -81,6 +92,68 @@ body {
 
       @include respond-to-up("md") {
         font-size: 32px;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+    align-items: center;
+    gap: 18px;
+
+    @include respond-to-up("md") {
+      display: flex;
+    }
+
+    &-item {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ccd6dd;
+      text-decoration: none;
+    }
+  }
+
+  &__mobile {
+    border: 1px solid #9ca3af;
+    padding: 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+    cursor: pointer;
+
+    @include respond-to-up("md") {
+      display: none;
+    }
+
+    &-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 32px;
+      position: absolute;
+      width: 100%;
+      height: calc(100vh - 78px);
+      background: #111827;
+      top: 78px;
+      left: -100%;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      
+      &.active {
+        left: 0;
+      }
+
+      a {
+        font-size: 20px;
+        font-weight: 700;
+        color: #ccd6dd;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        border-bottom: 1px solid;
+        padding: 16px;
       }
     }
   }
@@ -220,11 +293,15 @@ body {
 
 .text {
   margin-top: 36px;
+  text-align: center;
+  color: white;
   p {
-    color: white;
     font-weight: 500;
     font-size: 18px;
-    text-align: center;
+  }
+
+  a {
+    color: white;
   }
 }
 
@@ -296,12 +373,6 @@ body {
   margin-top: 48px;
   color: white;
 
-  h3 {
-    font-size: 32px;
-    font-weight: 700;
-    margin: 0 0 10px 0;
-  }
-
   p {
     font-size: 18px;
     font-weight: 500;
@@ -314,6 +385,69 @@ body {
 
     @include respond-to-up("md") {
       width: 70%;
+    }
+  }
+}
+
+.about {
+  color: white;
+
+  p {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 24px 0;
+  }
+}
+
+.fff {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 64px;
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: white;
+  margin-top: 18px;
+
+  @include respond-to-up("md") {
+    width: 60%;
+  }
+
+  &__item {
+    background: #374151;
+    border-radius: 4px;
+  }
+
+  &__title {
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #9ca3af;
+
+    &:hover {
+      background: #2e3643;
+    }
+
+    span {
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  &__content {
+    padding: 12px;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    p {
+      margin: 0 0 10px 0;
     }
   }
 }

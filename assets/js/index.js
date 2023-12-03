@@ -5,6 +5,10 @@ const resolutions = document.getElementById("resolutions");
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const videoLink = urlParams.get("link");
+const accordionTitles = document.querySelectorAll('.accordion__title')
+const headerMobile = document.getElementById('header-mobile')
+const headerMobileMenu = document.querySelector('.header__mobile-menu')
+let isActive = false
 
 const downloadVideo = async (data) => {
   try {
@@ -35,7 +39,7 @@ const fetchData = (url) => {
     });
 };
 
-submitBtn.addEventListener("click", () => {
+submitBtn && submitBtn.addEventListener("click", () => {
   resolutions.innerHTML = "";
   fetchData(input.value);
 });
@@ -43,3 +47,21 @@ submitBtn.addEventListener("click", () => {
 if (videoLink) {
   fetchData(videoLink);
 }
+
+accordionTitles && accordionTitles.forEach(item => {
+  item.addEventListener('click', (e) => {
+    const accordionContent = e.currentTarget.parentElement.querySelector('.accordion__content')
+    accordionContent.classList.toggle('active')
+  })
+})
+
+headerMobile.addEventListener('click', () => {
+  headerMobileMenu.classList.toggle('active')
+  if(!isActive) {
+    isActive = true
+    document.body.style.overflowY = 'hidden'
+  } else {
+    isActive = false
+    document.body.style.overflowY = 'auto'
+  }
+})
