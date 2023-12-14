@@ -336,6 +336,9 @@ h3 {
     font-size: 18px;
   }
 }
+.privacy-policy a {
+  color: white;
+}
 
 .how-to-use {
   display: flex;
